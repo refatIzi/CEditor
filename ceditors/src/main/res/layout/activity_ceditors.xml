@@ -65,7 +65,6 @@
                         android:background="#191919"
                         android:fastScrollEnabled="true"
                         android:fillViewport="true"
-
                         android:gravity="top"
                         android:hyphenationFrequency="none"
                         android:inputType="textMultiLine"
