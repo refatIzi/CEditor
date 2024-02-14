@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.ceditors.help.Help;
 import com.example.ceditors.R;
@@ -15,33 +16,33 @@ import com.example.ceditors.R;
 public class Control extends Fragment {
 
 
-
-
     Help mainInterface;
     Context context;
+    EditText parameters;
 
 
     public Control(Context context) {
         mainInterface = (Help) context;
         this.context = context;
-
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_control, container, false);
-
-
-
+        parameters = v.findViewById(R.id.parameters);
         return v;
     }
 
+    @Override
+    public String toString() {
+        if(parameters!=null)
+        return parameters.getText().toString();
+        else return  "";
+    }
 }

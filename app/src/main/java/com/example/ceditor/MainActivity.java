@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
          * Створює об'єкт класу Generate, який використовується для виконання дії з класом CEditors який є Activity та об'єктом Language.
          **/
 
+
         String[] functions = {
                 "self", "def", "as", "assert", "break", "continue", "del", "elif", "else", "except", "finally", "for", "from", "global",
                 "if", "import", "in", "pass", "raise", "return", "try", "while", "with", "yield", "min()", "setattr()", "abs()", "all()",
@@ -37,10 +38,36 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
                 "round()", "bin()", "eval()", "exec()", "isinstance()", "ord()", "sum()", "filter()", "issubclass()", "pow()", "iter()",
                 "print()", "callable()", "format()", "delattr()", "len()", "chr()", "range()", "vars()", "getattr()", "locals()", "repr()",
                 "zip()", "compile()", "globals()", "map()", "reversed()", "__import__()", "hasattr()", "hash()", "memoryview()"};
-        Language language = new Language("print(\"Hello World HI RIFATE\")", "Python", functions);
+        String code="#Python program to find the factorial of a number provided by the user.\n" +
+                "#import time\n" +
+                "import time\n" +
+                "print('FACTORIAL')\n" +
+                "def main():\n" +
+                "    # create parrot1 object\n" +
+                "    # change the value for a different result\n" +
+                "    num = 15\n" +
+                "    # To take input from the user\n" +
+                "    #num = int(input(\"Enter a number: \"))\n" +
+                "    factorial = 1\n" +
+                "    # check if the number is negative, positive or zero\n" +
+                "    if num < 0:\n" +
+                "        print(\"Sorry, factorial does not exist for negative numbers\")\n" +
+                "    elif num == 0:\n" +
+                "        print(\"The factorial of 0 is 1\")\n" +
+                "    else:\n" +
+                "        for i in range(1,num + 1):\n" +
+                "            factorial = factorial*i\n" +
+                "            #time.sleep(0.3)\n" +
+                "                #time.sleep(6)\n" +
+                "            print(factorial)\n" +
+                "\n" +
+                "        print(\"The factorial of\",num,\"is\",factorial)\n" +
+                "    #num = int(input(\"Enter a number: \"))\n" +
+                "if name == 'main':\n" +
+                "    main()";
+        Language language = new Language(code, "Python", functions);
+
         new Generate(this, CEditors.class, language, "language");
-
-
     }
 
 
@@ -52,6 +79,6 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
     @Override
     public void setCls(Object cls) {
         Language language = (Language) cls;
-        texttt.setText(language.getCode() + " " + language.getLanguage());
+        texttt.setText(language.getCode() + " " + language.getLanguage()+ " " + language.getParameters()+ " " + language.getAction());
     }
 }

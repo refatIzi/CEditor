@@ -61,7 +61,7 @@ public class CEditors extends AppCompatActivity implements Help {
         control = new Control(this);
 
         setFragment(control);
-
+        numberOfConstruction(0, 0);
 
         editText.addTextChangedListener(new ActivityEditWatcher(CEditors.this));
 
@@ -106,12 +106,13 @@ public class CEditors extends AppCompatActivity implements Help {
 
             } catch (Exception e) {
             }
-
-
             return null;
         };
         editText.setFilters(new InputFilter[]{filter});
         editText.setText(language.getCode());
+        String[] lines = language.getCode().split("\n");
+        int lineCount = lines.length;
+        numberOfConstruction(0, lineCount);
     }
 
 
@@ -137,8 +138,8 @@ public class CEditors extends AppCompatActivity implements Help {
     /**
      * Метод котрый выводит номурецию строки
      */
-    public void numberOfConstruction(int errLine) {
-        int line = editText.getLineCount();
+    public void numberOfConstruction(int errLine, int line) {
+        if (line == 0) line = editText.getLineCount();
         String number = "";
         try {
             for (int i = 1; i <= line; i++) {
@@ -167,6 +168,14 @@ public class CEditors extends AppCompatActivity implements Help {
         }
     }
 
+    private void rLanguage(String action) {
+        language.setCode(editText.getText().toString());
+        language.setParameters(control.toString());
+        language.setAction(action);
+        new Generate().sendToActivity(this, language, "language");
+        finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -179,16 +188,15 @@ public class CEditors extends AppCompatActivity implements Help {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.loading) {
-            new Generate().sendToActivity(this,language,"language");
-            finish();
+            rLanguage("loading");
         } else if (id == R.id.new_file) {
-            editText.getText().clear();
+            rLanguage("new_file");
         } else if (id == R.id.action_settings) {
 
         } else if (id == R.id.open) {
-
+            rLanguage("open");
         } else if (id == R.id.new_project) {
-
+            rLanguage("new_project");
         }
         return super.onOptionsItemSelected(item);
     }
@@ -219,10 +227,10 @@ public class CEditors extends AppCompatActivity implements Help {
                 try {
                     int l = Integer.parseInt(String.valueOf(new Scanner(line[1]).useDelimiter("[^\\d]+").nextInt()));
                     if (l > 0) {
-                        numberOfConstruction(l);
+                        numberOfConstruction(l, 0);
 
                     } else {
-                        numberOfConstruction(0);
+                        numberOfConstruction(0, 0);
                     }
                 } catch (NumberFormatException e) {
                 }

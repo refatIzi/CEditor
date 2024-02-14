@@ -11,6 +11,8 @@ public class Language implements Serializable {
     String[] functions;
     String parameters;
     String error;
+    String action;
+
 
     public Language() {
     }
@@ -79,6 +81,14 @@ public class Language implements Serializable {
 
     public void setError(String error) {
         this.error = error;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 
     public Language language(byte[] bytes) {

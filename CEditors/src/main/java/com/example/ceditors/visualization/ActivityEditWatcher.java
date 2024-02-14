@@ -25,7 +25,7 @@ public class ActivityEditWatcher implements TextWatcher {
     /**при изменении текста и добавлениии текста и переходе на новую строку*/
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        mainActivity.numberOfConstruction(0);
+        mainActivity.numberOfConstruction(0,0);
     }
 
     // после изменении текста
