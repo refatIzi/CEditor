@@ -48,36 +48,38 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/Table"
+                android:id="@+id/table"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:layout_marginRight="5dp"
                 android:background="#0260e8"
                 android:padding="@dimen/cardview_default_elevation"
-                android:text="Tab"
+                android:text="Tab" />
 
-
-                />
             <HorizontalScrollView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="#263046">
+                android:gravity="left">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                    <ListView
-                        android:id="@+id/list_view"
+                    <TextView
+                        android:id="@+id/notice"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent" />
-
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:gravity="center|left"
+                        android:hint="no connection to server"
+                        android:paddingLeft="5dp"
+                        android:textColor="#781919"
+                        android:textSize="13dp"
+                        android:textStyle="bold"
+                        android:typeface="monospace" />
                 </LinearLayout>
-
             </HorizontalScrollView>
-
-
 
         </LinearLayout>
 

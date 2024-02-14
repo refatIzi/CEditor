@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ceditors.control.Control;
+import com.example.ceditors.control.Controls;
 import com.example.ceditors.help.Help;
 import com.example.ceditors.help.Helpers;
 import com.example.ceditors.language.Language;
@@ -34,11 +35,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class CEditors extends AppCompatActivity implements Help {
+public class CEditors extends AppCompatActivity implements Help, Control {
     EditText editText;
     TextView numberCode;
     Helpers helpers;
-    Control control;
+    Controls controls;
     Language language;
 
     @Override
@@ -58,9 +59,9 @@ public class CEditors extends AppCompatActivity implements Help {
         editText.setTextSize(12);
         numberCode.setTextSize(12);
         helpers = new Helpers(this);
-        control = new Control(this);
+        controls = new Controls(this);
 
-        setFragment(control);
+        setFragment(controls);
         numberOfConstruction(0, 0);
 
         editText.addTextChangedListener(new ActivityEditWatcher(CEditors.this));
@@ -118,10 +119,10 @@ public class CEditors extends AppCompatActivity implements Help {
 
     private void checkEndsWith(@NonNull String str) {
         if (str.endsWith(" ")) {
-            setFragment(control);
+            setFragment(controls);
         }
         if (str.endsWith("\n")) {
-            setFragment(control);
+            setFragment(controls);
         }
         if (str.length() <= 0) {
         }
@@ -170,7 +171,7 @@ public class CEditors extends AppCompatActivity implements Help {
 
     private void rLanguage(String action) {
         language.setCode(editText.getText().toString());
-        language.setParameters(control.toString());
+        language.setParameters(controls.toString());
         language.setAction(action);
         new Generate().sendToActivity(this, language, "language");
         finish();
@@ -237,5 +238,11 @@ public class CEditors extends AppCompatActivity implements Help {
 
             }
         }
+    }
+
+    @Override
+    public void tab() {
+        editText.getText().insert(editText.getSelectionStart(), "    ");
+        setFragment(controls);
     }
 }
