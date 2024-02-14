@@ -14,6 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CEditor"
 include ':app'
-include ':CEditors'
+include ':ceditors'
 include ':generate'
 include ':serializationutils'
