@@ -11,7 +11,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/new_project"
-        android:icon="@drawable/ic_python_project"
+        android:icon="@drawable/code"
         android:orderInCategory="2"
         app:showAsAction="always"
 

@@ -27,6 +27,7 @@ import com.example.ceditors.help.Help;
 import com.example.ceditors.help.Helpers;
 import com.example.ceditors.language.Language;
 import com.example.ceditors.line.Line;
+import com.example.ceditors.setting.Setting;
 import com.example.ceditors.visualization.ActivityEditWatcher;
 import com.example.generate.Generate;
 
@@ -193,7 +194,7 @@ public class CEditors extends AppCompatActivity implements Help, Control {
         } else if (id == R.id.new_file) {
             rLanguage("new_file");
         } else if (id == R.id.action_settings) {
-
+            new Setting(this);
         } else if (id == R.id.open) {
             rLanguage("open");
         } else if (id == R.id.new_project) {

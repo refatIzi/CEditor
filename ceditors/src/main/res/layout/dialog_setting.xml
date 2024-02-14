@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/curved_style"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/colors"
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:backgroundTint="@android:color/transparent"
+            android:ems="10"
+            android:hint="colors"
+            android:inputType="textPersonName"
+            android:textColor="#ffc851"
+            android:textColorHint="#ffc851"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#1372f4"
+        android:textSize="16sp"
+        android:typeface="monospace"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/text_size_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_dark"
+            android:text="@string/cancel"
+            android:textColor="#dfd6cf"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:background="@drawable/button_blue"
+            android:text="@string/save"
+            android:textColor="#dfd6cf"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+</LinearLayout>
