@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@drawable/shape_image"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#191919"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linerMessage"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#781919"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/configuration"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:background="#781919"
+                android:fastScrollEnabled="true"
+                android:fillViewport="true"
+                android:hint="write configuration"
+                android:hyphenationFrequency="none"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="true"
+                android:singleLine="false"
+                android:textColor="#dfd6cf"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Table"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:background="#0260e8"
+                android:padding="@dimen/cardview_default_elevation"
+                android:text="Tab"
+
+
+                />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="#263046">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ListView
+                        android:id="@+id/list_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
