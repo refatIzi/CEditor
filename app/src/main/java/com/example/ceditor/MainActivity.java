@@ -1,10 +1,13 @@
 package com.example.ceditor;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.ceditors.CEditors;
 import com.example.ceditors.language.Language;
 
 
@@ -81,8 +84,11 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
     }
 
     @Override
-    public void setCls(Object cls) {
-        Language language = (Language) cls;
-        texttt.setText(language.getCode() + " " + language.getLanguage()+ " " + language.getParameters()+ " " + language.getAction());
+    public void setCls(@NonNull Object cls) {
+        Toast.makeText(this," action "+cls.toString(),Toast.LENGTH_LONG).show();
+        if(cls.toString().equals("loading")) {
+            Language language = (Language) cls;
+            texttt.setText(language.getCode() + " " + language.getLanguage() + " " + language.getParameters() + " " + language.getAction());
+        }
     }
 }

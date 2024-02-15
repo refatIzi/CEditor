@@ -39,9 +39,9 @@ public class Communication extends AppCompatActivity implements AdapterView.OnIt
                         "The government has become stricter about income verification for those receiving benefits.\n" +
                         "verification of address/ID/income\n";
                 if (i%2==0) {
-                    list.add(new Connect("sDirList[i]", "online", about, R.drawable.xenomorphonline));
+                    list.add(new Connect("DESKTOP-HO124TE \nIP 192.168.100."+i, "online", about, R.drawable.xenomorphonline));
                 } else {
-                    list.add(new Connect("DESKTOP-HO124TE \nIP 192.168.100.200", "offline", about, R.drawable.xenomorphoffline));
+                    list.add(new Connect("DESKTOP-HO124TE \nIP 192.168.100."+i, "offline", about, R.drawable.xenomorphoffline));
                 }
             }
         }

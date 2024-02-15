@@ -1,5 +1,7 @@
 package com.example.ceditors.language;
 
+import androidx.annotation.NonNull;
+
 import com.example.serializationutils.SerializationUtils;
 
 import java.io.IOException;
@@ -89,6 +91,12 @@ public class Language implements Serializable {
 
     public void setAction(String action) {
         this.action = action;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return action;
     }
 
     public Language language(byte[] bytes) {
