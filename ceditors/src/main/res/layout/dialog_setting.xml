@@ -18,7 +18,7 @@
             android:layout_gravity="left"
             android:backgroundTint="@android:color/transparent"
             android:ems="10"
-            android:hint="colors"
+            android:hint="Style"
             android:inputType="textPersonName"
             android:textColor="#ffc851"
             android:textColorHint="#ffc851"
@@ -46,13 +46,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:gravity="right">
 
         <Button
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
             android:layout_marginEnd="5dp"
             android:background="@drawable/button_dark"
@@ -64,7 +64,7 @@
         <Button
             android:id="@+id/save"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
             android:background="@drawable/button_blue"
             android:text="@string/save"

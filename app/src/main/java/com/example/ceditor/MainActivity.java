@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.ceditors.CEditors;
-
 import com.example.ceditors.language.Language;
+
+
+import com.example.communication.Communication;
+import com.example.communication.connect.Сonnected;
 import com.example.generate.Generate;
 import com.example.generate.ReturnActivity;
 
@@ -67,7 +69,9 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
                 "    main()";
         Language language = new Language(code, "Python", functions);
 
-        new Generate(this, CEditors.class, language, "language");
+        //new Generate(this, CEditors.class, language, "language");
+       Сonnected сonnected = new Сonnected();
+       new Generate(this, Communication.class, сonnected, "language");
     }
 
 
