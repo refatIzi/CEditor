@@ -43,8 +43,8 @@ public class FileDetectAdapter extends ArrayAdapter<FileDetect> {
 
         image.setImageResource(fileDetect.getImage());
         name.setText(fileDetect.getName());
-        status.setText(fileDetect.getTime());
-        info.setText(fileDetect.getInformation());
+        status.setText(fileDetect.getTime_create());
+        info.setText(fileDetect.getMetadate());
 
         return view;
     }

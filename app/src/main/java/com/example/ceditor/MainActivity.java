@@ -12,7 +12,9 @@ import com.example.ceditors.language.Language;
 
 import com.example.communication.connect.Сonnected;
 import com.example.dashboard.Dashboard;
-import com.example.dashboard.detect.Status;
+import com.example.dashboard.status.CheckFile;
+import com.example.dashboard.status.CheckHost;
+import com.example.dashboard.status.Status;
 import com.example.generate.Generate;
 import com.example.generate.ReturnActivity;
 import com.example.terminal.terminal.Contact;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
                 "round()", "bin()", "eval()", "exec()", "isinstance()", "ord()", "sum()", "filter()", "issubclass()", "pow()", "iter()",
                 "print()", "callable()", "format()", "delattr()", "len()", "chr()", "range()", "vars()", "getattr()", "locals()", "repr()",
                 "zip()", "compile()", "globals()", "map()", "reversed()", "__import__()", "hasattr()", "hash()", "memoryview()"};
-        String code="#Python program to find the factorial of a number provided by the user.\n" +
+        String code = "#Python program to find the factorial of a number provided by the user.\n" +
                 "#import time\n" +
                 "import time\n" +
                 "print('FACTORIAL')\n" +
@@ -73,8 +75,20 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
                 "    main()";
         Language language = new Language(code, "Python", functions);
         Сonnected сonnected = new Сonnected();
-        Contact contact =new Contact();
-        Status status = new Status();
+        Contact contact = new Contact();
+
+        String metadate = "Metadata has various purposes. It can help users find relevant information and discover resources. It can also help organize electronic resources, provide digital identification, and archive and preserve resources. Metadata allows users to access resources by \"allowing resources to be found by relevant criteria, identifying resources, bringing similar resources together, distinguishing dissimilar resources, and giving location information\".[8] Metadata of telecommunication activities including Internet traffic is very widely collected by various national governmental organizations. This data is used for the purposes of traffic analysis and can be used for mass surveillance.[9]\n" +
+                "\n" +
+                "Metadata was traditionally used in the card catalogs of libraries until the 1980s when libraries converted their catalog data to digital databases.[10] In the 2000s, as data and information were increasingly stored digitally, this digital data was described using metadata standards.[11]";
+
+        CheckHost checkHost = new CheckHost("Desktop-HS20PTRK", "192.168.200.100", "20:H0:20:10:0:H0:20:10");
+        CheckFile[] checkFiles = {
+                new CheckFile("My word document", "12.12.12", metadate),
+                new CheckFile("My word document", "12.12.12", metadate),
+                new CheckFile("My word document", "12.12.12", metadate)};
+        Status status = new Status(checkHost,checkFiles);
+        //Status status = new Status();
+
         //new Generate(this, CEditors.class, language, "language");
         //new Generate(this, Communication.class, сonnected, "сonnected");
         //new Generate(this, Terminal.class, contact, "contact");
@@ -89,8 +103,8 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
 
     @Override
     public void setCls(@NonNull Object cls) {
-        Toast.makeText(this," action "+cls.toString(),Toast.LENGTH_LONG).show();
-        if(cls.toString().equals("loading")) {
+        Toast.makeText(this, " action " + cls.toString(), Toast.LENGTH_LONG).show();
+        if (cls.toString().equals("loading")) {
             Language language = (Language) cls;
             texttt.setText(language.getCode() + " " + language.getLanguage() + " " + language.getParameters() + " " + language.getAction());
         }

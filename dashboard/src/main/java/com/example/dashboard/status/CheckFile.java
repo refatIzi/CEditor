@@ -1,18 +1,16 @@
-package com.example.dashboard.detect;
+package com.example.dashboard.status;
 
-public class Detect {
+import java.io.Serializable;
 
+public class CheckFile implements Serializable {
     private String file_name;
     private String time_create;
     private String detect_info;
-    private int image;
 
-
-    public Detect(String file_name, String time_create, String detect_info, int image) {
+    public CheckFile(String file_name, String time_create, String detect_info) {
         this.file_name = file_name;
         this.time_create = time_create;
         this.detect_info = detect_info;
-        this.image = image;
     }
 
     public String getFile_name() {
@@ -27,7 +25,7 @@ public class Detect {
         return time_create;
     }
 
-    public void setTime_create(String name) {
+    public void setTime_create(String time_create) {
         this.time_create = time_create;
     }
 
@@ -38,13 +36,4 @@ public class Detect {
     public void setDetect_info(String detect_info) {
         this.detect_info = detect_info;
     }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
-
 }

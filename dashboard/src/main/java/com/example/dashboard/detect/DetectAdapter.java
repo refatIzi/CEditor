@@ -42,9 +42,9 @@ public class DetectAdapter extends ArrayAdapter<Detect> {
         info.addTextChangedListener(new ActivityEditWatcher((Dashboard) context));
 
         image.setImageResource(detect.getImage());
-        name.setText(detect.getName());
-        status.setText(detect.getTime());
-        info.setText(detect.getInformation());
+        name.setText(detect.getFile_name());
+        status.setText(detect.getTime_create());
+        info.setText(detect.getDetect_info());
 
         return view;
     }

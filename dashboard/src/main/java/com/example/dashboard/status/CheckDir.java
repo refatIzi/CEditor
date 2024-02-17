@@ -1,18 +1,16 @@
-package com.example.dashboard.folder;
+package com.example.dashboard.status;
 
-public class FileDetect {
+import java.io.Serializable;
 
+public class CheckDir implements Serializable {
     private String name;
     private String time_create;
     private String metadate;
-    private int image;
 
-
-    public FileDetect(String name, String time_create, String metadate, int image) {
+    public CheckDir(String name, String time_create, String metadate) {
         this.name = name;
         this.time_create = time_create;
         this.metadate = metadate;
-        this.image = image;
     }
 
     public String getName() {
@@ -27,7 +25,7 @@ public class FileDetect {
         return time_create;
     }
 
-    public void setTime_create(String name) {
+    public void setTime_create(String time_create) {
         this.time_create = time_create;
     }
 
@@ -38,13 +36,4 @@ public class FileDetect {
     public void setMetadate(String metadate) {
         this.metadate = metadate;
     }
-
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
-
 }
