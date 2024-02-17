@@ -13,8 +13,10 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/ceditors" />
             <option value="$PROJECT_DIR$/communication" />
+            <option value="$PROJECT_DIR$/dashboard" />
             <option value="$PROJECT_DIR$/generate" />
             <option value="$PROJECT_DIR$/serializationutils" />
+            <option value="$PROJECT_DIR$/terminal" />
           </set>
         </option>
       </GradleProjectSettings>

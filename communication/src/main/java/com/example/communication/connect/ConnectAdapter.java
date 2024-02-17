@@ -12,7 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 
+import com.example.communication.Communication;
 import com.example.communication.R;
+import com.example.communication.visualization.ActivityEditWatcher;
 
 import java.util.List;
 
@@ -38,6 +40,8 @@ public class ConnectAdapter extends ArrayAdapter<Connect> {
         TextView name = view.findViewById(R.id.name);
         TextView status = view.findViewById(R.id.status);
         TextView info = view.findViewById(R.id.info);
+        info.addTextChangedListener(new ActivityEditWatcher((Communication) context));
+
         image.setImageResource(connect.getImage());
         name.setText(connect.getNumber());
         status.setText(connect.getTime());

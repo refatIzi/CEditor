@@ -7,14 +7,15 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ceditors.CEditors;
 import com.example.ceditors.language.Language;
 
 
-import com.example.communication.Communication;
 import com.example.communication.connect.Сonnected;
+import com.example.dashboard.Dashboard;
+import com.example.dashboard.detect.Status;
 import com.example.generate.Generate;
 import com.example.generate.ReturnActivity;
+import com.example.terminal.terminal.Contact;
 
 /**
  * @Activity Реалізує інтерфейс ReturnActivity:
@@ -71,10 +72,13 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
                 "if name == 'main':\n" +
                 "    main()";
         Language language = new Language(code, "Python", functions);
-
+        Сonnected сonnected = new Сonnected();
+        Contact contact =new Contact();
+        Status status = new Status();
         //new Generate(this, CEditors.class, language, "language");
-       Сonnected сonnected = new Сonnected();
-       new Generate(this, Communication.class, сonnected, "language");
+        //new Generate(this, Communication.class, сonnected, "сonnected");
+        //new Generate(this, Terminal.class, contact, "contact");
+        new Generate(this, Dashboard.class, status, "status");
     }
 
 
