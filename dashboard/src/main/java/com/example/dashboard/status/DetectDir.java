@@ -2,12 +2,12 @@ package com.example.dashboard.status;
 
 import java.io.Serializable;
 
-public class CheckDir implements Serializable {
+public class DetectDir implements Serializable {
     private String name;
     private String time_create;
     private String metadate;
 
-    public CheckDir(String name, String time_create, String metadate) {
+    public DetectDir(String name, String time_create, String metadate) {
         this.name = name;
         this.time_create = time_create;
         this.metadate = metadate;

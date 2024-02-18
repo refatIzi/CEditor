@@ -2,12 +2,12 @@ package com.example.dashboard.status;
 
 import java.io.Serializable;
 
-public class CheckFile implements Serializable {
+public class DetectFile implements Serializable {
     private String file_name;
     private String time_create;
     private String detect_info;
 
-    public CheckFile(String file_name, String time_create, String detect_info) {
+    public DetectFile(String file_name, String time_create, String detect_info) {
         this.file_name = file_name;
         this.time_create = time_create;
         this.detect_info = detect_info;

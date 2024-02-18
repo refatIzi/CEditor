@@ -1,6 +1,6 @@
 package com.example.dashboard.folder;
 
-public class FileDetect {
+public class Explorer {
 
     private String name;
     private String time_create;
@@ -8,7 +8,7 @@ public class FileDetect {
     private int image;
 
 
-    public FileDetect(String name, String time_create, String metadate, int image) {
+    public Explorer(String name, String time_create, String metadate, int image) {
         this.name = name;
         this.time_create = time_create;
         this.metadate = metadate;

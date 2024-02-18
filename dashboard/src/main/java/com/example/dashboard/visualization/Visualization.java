@@ -43,7 +43,7 @@ public class Visualization {
             Color.parseColor("#648cb8")
     );
     private static Visualization visualization = new Visualization();
-    static final TextColor[] colors = {
+   private static  TextColor[] colors = {
             visualization.similar_part_of_speeches,
             visualization.NUMBERS,
             visualization.LETTERS,
@@ -53,6 +53,7 @@ public class Visualization {
             visualization.DETECT_WORD
 
     };
+
 
     public static TextColor[] getColors() {
         return colors;

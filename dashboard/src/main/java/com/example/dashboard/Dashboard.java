@@ -11,11 +11,11 @@ import android.widget.ListView;
 
 import com.example.dashboard.detect.Detect;
 import com.example.dashboard.detect.DetectAdapter;
-import com.example.dashboard.folder.FileDetect;
-import com.example.dashboard.folder.FileDetectAdapter;
-import com.example.dashboard.status.CheckFile;
-import com.example.dashboard.status.CheckHost;
-import com.example.dashboard.status.Status;
+import com.example.dashboard.folder.Explorer;
+import com.example.dashboard.folder.ExplorerAdapter;
+import com.example.dashboard.status.DetectFile;
+import com.example.dashboard.status.DetectHost;
+import com.example.dashboard.status.DetectStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,26 +24,26 @@ public class Dashboard extends AppCompatActivity {
     private List<Detect> list = new ArrayList<>();
     private DetectAdapter detectAdapter;
     private ListView detectView;
-    private List<FileDetect> fileDetects = new ArrayList<>();
-    private FileDetectAdapter fileDetectAdapter;
+    private List<Explorer> explorers = new ArrayList<>();
+    private ExplorerAdapter explorerAdapter;
     private ListView detectDir;
-    private Status status;
-    private CheckHost checkHost;
-    private CheckFile[] checkFile;
+    private DetectStatus detectStatus;
+    private DetectHost detectHost;
+    private DetectFile[] detectFile;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        status = new Status().status((byte[]) getIntent().getSerializableExtra("status"));
-        checkHost = status.getHost();
-        checkFile = status.getCheckFiles();
-        setTitle(checkHost.getHostName());
+        detectStatus = new DetectStatus().status((byte[]) getIntent().getSerializableExtra("status"));
+        detectHost = detectStatus.getHost();
+        detectFile = detectStatus.getDetectFile();
+        setTitle(detectHost.getHostName());
         detectView = findViewById(R.id.detectView);
         detectDir = findViewById(R.id.detectDir);
 
-        showDetect(checkFile);
+        showDetect(detectFile);
         showDire(null);
     }
 
@@ -66,14 +66,14 @@ public class Dashboard extends AppCompatActivity {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void showDetect(CheckFile[] checkFile) {
+    private void showDetect(DetectFile[] detectFile) {
         list.clear();
-        for (int i = 0; i < checkFile.length; i++) {
+        for (int i = 0; i < detectFile.length; i++) {
             {
                 list.add(new Detect(
-                        checkFile[i].getFile_name(),
-                        checkFile[i].getTime_create(),
-                        checkFile[i].getDetect_info(),
+                        detectFile[i].getFile_name(),
+                        detectFile[i].getTime_create(),
+                        detectFile[i].getDetect_info(),
                         R.drawable.ic_file_hex));
             }
         }
@@ -83,18 +83,18 @@ public class Dashboard extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void showDire(String connected) {
-        fileDetects.clear();
+        explorers.clear();
         for (int i = 0; i < 20; i++) {
             {
                 String about = "Metadata is defined as the data providing information about one or more aspects of the data; it is used to summarize basic";
                 if (i % 2 == 0) {
-                    fileDetects.add(new FileDetect("Folder" + i, "12.12.12", about, R.drawable.ic_folder));
+                    explorers.add(new Explorer("Folder" + i, "12.12.12", about, R.drawable.ic_folder));
                 } else {
-                    fileDetects.add(new FileDetect("File" + i, "12.12.12", about, R.drawable.ic_file_hex));
+                    explorers.add(new Explorer("File" + i, "12.12.12", about, R.drawable.ic_file_hex));
                 }
             }
         }
-        fileDetectAdapter = new FileDetectAdapter(this, R.layout.iteam_file, fileDetects);
-        detectDir.setAdapter(fileDetectAdapter);
+        explorerAdapter = new ExplorerAdapter(this, R.layout.iteam_file, explorers);
+        detectDir.setAdapter(explorerAdapter);
     }
 }

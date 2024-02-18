@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageFile"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
@@ -26,16 +26,16 @@
         android:layout_marginLeft="7dp"
         android:layout_marginEnd="6dp"
         android:layout_marginRight="6dp"
-        android:layout_toStartOf="@+id/status"
-        android:layout_toLeftOf="@+id/status"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
+        android:layout_toStartOf="@+id/time_create"
+        android:layout_toLeftOf="@+id/time_create"
+        android:layout_toEndOf="@+id/imageFile"
+        android:layout_toRightOf="@+id/imageFile"
         android:textColor="#d3a523"
         android:textSize="13dip"
         android:typeface="monospace" />
 
     <TextView
-        android:id="@+id/info"
+        android:id="@+id/metadate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
@@ -45,15 +45,15 @@
         android:layout_marginTop="2dp"
         android:layout_marginBottom="5dp"
         android:paddingRight="5dp"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageFile"
+        android:layout_toRightOf="@+id/imageFile"
         android:text="TextView"
         android:textColor="#54585b"
         android:textSize="10dp"
         android:typeface="monospace" />
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/time_create"
         android:layout_width="67dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"

@@ -37,7 +37,7 @@ public class DetectAdapter extends ArrayAdapter<Detect> {
         detect = list.get(position);
         ImageView image = view.findViewById(R.id.imageView);
         TextView name = view.findViewById(R.id.name);
-        TextView status = view.findViewById(R.id.status);
+        TextView status = view.findViewById(R.id.time_create);
         TextView info = view.findViewById(R.id.info);
         info.addTextChangedListener(new ActivityEditWatcher((Dashboard) context));
 

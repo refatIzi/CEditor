@@ -10,11 +10,12 @@ import android.widget.Toast;
 import com.example.ceditors.language.Language;
 
 
+import com.example.communication.Communication;
+import com.example.communication.connect.AConnect;
 import com.example.communication.connect.Сonnected;
-import com.example.dashboard.Dashboard;
-import com.example.dashboard.status.CheckFile;
-import com.example.dashboard.status.CheckHost;
-import com.example.dashboard.status.Status;
+import com.example.dashboard.status.DetectFile;
+import com.example.dashboard.status.DetectHost;
+import com.example.dashboard.status.DetectStatus;
 import com.example.generate.Generate;
 import com.example.generate.ReturnActivity;
 import com.example.terminal.terminal.Contact;
@@ -74,25 +75,42 @@ public class MainActivity extends AppCompatActivity implements ReturnActivity {
                 "if name == 'main':\n" +
                 "    main()";
         Language language = new Language(code, "Python", functions);
-        Сonnected сonnected = new Сonnected();
+
         Contact contact = new Contact();
 
         String metadate = "Metadata has various purposes. It can help users find relevant information and discover resources. It can also help organize electronic resources, provide digital identification, and archive and preserve resources. Metadata allows users to access resources by \"allowing resources to be found by relevant criteria, identifying resources, bringing similar resources together, distinguishing dissimilar resources, and giving location information\".[8] Metadata of telecommunication activities including Internet traffic is very widely collected by various national governmental organizations. This data is used for the purposes of traffic analysis and can be used for mass surveillance.[9]\n" +
                 "\n" +
                 "Metadata was traditionally used in the card catalogs of libraries until the 1980s when libraries converted their catalog data to digital databases.[10] In the 2000s, as data and information were increasingly stored digitally, this digital data was described using metadata standards.[11]";
 
-        CheckHost checkHost = new CheckHost("Desktop-HS20PTRK", "192.168.200.100", "20:H0:20:10:0:H0:20:10");
-        CheckFile[] checkFiles = {
-                new CheckFile("My word document", "12.12.12", metadate),
-                new CheckFile("My word document", "12.12.12", metadate),
-                new CheckFile("My word document", "12.12.12", metadate)};
-        Status status = new Status(checkHost,checkFiles);
-        //Status status = new Status();
 
+        /**HOST імʼя пристрою з кого було отримано даннні*/
+        DetectHost detectHost = new DetectHost("Desktop-HS20PTRK", "192.168.200.100", "20:H0:20:10:0:H0:20:10");
+        /**Файли по яким було знайдені*/
+        DetectFile[] detectFiles = {
+                new DetectFile("My word document", "12.12.12", metadate),
+                new DetectFile("My word document", "12.12.12", metadate),
+                new DetectFile("My word document", "12.12.12", metadate),
+                new DetectFile("My word document", "12.12.12", metadate),
+                new DetectFile("My word document", "12.12.12", metadate),
+                new DetectFile("My word document", "12.12.12", metadate),
+                new DetectFile("My word document", "12.12.12", metadate),
+                new DetectFile("My word document", "12.12.12", metadate)};
+        DetectStatus detectStatus = new DetectStatus(detectHost, detectFiles);
+        DetectStatus[] detectStatuses = {detectStatus, detectStatus, detectStatus, detectStatus, detectStatus, detectStatus};
         //new Generate(this, CEditors.class, language, "language");
-        //new Generate(this, Communication.class, сonnected, "сonnected");
+
+        String[] metadates = {"My word document", "My word document", "My word document", "My word document", "My word document", "My word document",};
+        AConnect aConnect1 = new AConnect("Desktop-HS20PTRK", metadates, "online");
+        AConnect aConnect2 = new AConnect("Desktop-HS20PTRK", metadates, "offline");
+        AConnect aConnect3 = new AConnect("Desktop-HS20PTRK", metadates, "online");
+        AConnect aConnect4 = new AConnect("Desktop-HS20PTRK", metadates, "offline");
+        AConnect aConnect5 = new AConnect("Desktop-HS20PTRK", metadates, "online");
+
+        AConnect[] connects = {aConnect1, aConnect2, aConnect3, aConnect4, aConnect5};
+        Сonnected сonnected = new Сonnected(connects);
+        new Generate(this, Communication.class, сonnected, "сonnected");
         //new Generate(this, Terminal.class, contact, "contact");
-        new Generate(this, Dashboard.class, status, "status");
+        //new Generate(this, Dashboard.class, status, "status");
     }
 
 

@@ -2,12 +2,12 @@ package com.example.dashboard.status;
 
 import java.io.Serializable;
 
-public class CheckHost implements Serializable {
+public class DetectHost implements Serializable {
     String hostName;
     String ipAddress;
     String macAddress;
 
-    public CheckHost(String hostName, String ipAddress, String macAddress) {
+    public DetectHost(String hostName, String ipAddress, String macAddress) {
         this.hostName = hostName;
         this.ipAddress = ipAddress;
         this.macAddress = macAddress;
